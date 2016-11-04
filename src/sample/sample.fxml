@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8.0.102-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+  <tabs>
+    <Tab text="Lista Cartas">
+         <content>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Button fx:id="btActualizar" mnemonicParsing="false" onAction="#Refresh" text="Actualizar" VBox.vgrow="ALWAYS">
+                     <VBox.margin>
+                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                     </VBox.margin></Button>
+                  <Separator prefHeight="16.0" prefWidth="600.0" />
+                  <ListView fx:id="listViewCartas" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
+               </children>
+            </VBox>
+         </content>
+    </Tab>
+    <Tab text="Setttings">
+         <content>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <Label text="Color">
+                           <HBox.margin>
+                              <Insets bottom="8.0" left="8.0" right="32.0" top="8.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font name="System Bold" size="22.0" />
+                           </font></Label>
+                        <TextArea fx:id="txtColor" minHeight="-Infinity" minWidth="-Infinity" prefHeight="23.0" prefWidth="290.0">
+                           <HBox.margin>
+                              <Insets bottom="16.0" top="16.0" />
+                           </HBox.margin></TextArea>
+                     </children></HBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <Label contentDisplay="CENTER" text="Rareza" textAlignment="CENTER" underline="true">
+                           <VBox.margin>
+                              <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font name="System Bold" size="22.0" />
+                           </font></Label>
+                        <Pane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <RadioButton fx:id="rdbtComun" layoutX="21.0" layoutY="17.0" mnemonicParsing="false" text="Comun" />
+                              <RadioButton fx:id="rdbtNoComun" layoutX="21.0" layoutY="42.0" mnemonicParsing="false" text="No Comun" />
+                              <RadioButton fx:id="rdbtRaro" layoutX="21.0" layoutY="66.0" mnemonicParsing="false" text="Raro" />
+                              <RadioButton fx:id="rdbtEspecial" layoutX="21.0" layoutY="116.0" mnemonicParsing="false" text="Especial" />
+                              <RadioButton fx:id="rdbtMistic" layoutX="21.0" layoutY="91.0" mnemonicParsing="false" text="Mistico Raro" />
+                              <RadioButton fx:id="rdbtBasicLand" layoutX="22.0" layoutY="140.0" mnemonicParsing="false" text="Basica de Tierra" />
+                              <RadioButton layoutX="22.0" layoutY="166.0" mnemonicParsing="false" text="RadioButton" />
+                           </children>
+                        </Pane>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+         </content>
+    </Tab>
+  </tabs>
+</TabPane>
