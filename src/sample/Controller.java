@@ -114,3 +114,5 @@ public class Controller {
 
     }
 }
+//TODO Hacer que en la cuadricula te ponga los colores correspondientes por cada carta los sleeccionados
+//TODO Hacer filtro por cartas
