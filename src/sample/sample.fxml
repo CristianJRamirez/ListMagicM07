@@ -165,15 +165,15 @@
                            </font></Label>
                         <Pane prefHeight="200.0" prefWidth="200.0">
                            <children>
-                              <RadioButton fx:id="rdbtComun" layoutX="21.0" layoutY="17.0" mnemonicParsing="false" text="Comun" toggleGroup="$rdGroupRareza">
+                              <RadioButton fx:id="rdbtComun" layoutX="21.0" layoutY="17.0" mnemonicParsing="false" onAction="#selecionRareza" text="Comun">
                                  <toggleGroup>
                                     <ToggleGroup fx:id="rdGroupRareza" />
                                  </toggleGroup></RadioButton>
-                              <RadioButton fx:id="rdbtNoComun" layoutX="21.0" layoutY="42.0" mnemonicParsing="false" text="No Comun" toggleGroup="$rdGroupRareza" />
-                              <RadioButton fx:id="rdbtRaro" layoutX="21.0" layoutY="66.0" mnemonicParsing="false"  text="Raro" toggleGroup="$rdGroupRareza" />
-                              <RadioButton fx:id="rdbtEspecial" layoutX="21.0" layoutY="116.0" mnemonicParsing="false"  text="Especial" toggleGroup="$rdGroupRareza" />
-                              <RadioButton fx:id="rdbtMistic" layoutX="21.0" layoutY="91.0" mnemonicParsing="false"  text="Mistico Raro" toggleGroup="$rdGroupRareza" />
-                              <RadioButton fx:id="rdbtBasicLand" layoutX="22.0" layoutY="140.0" mnemonicParsing="false"  text="Basica de Tierra" toggleGroup="$rdGroupRareza" />
+                              <RadioButton fx:id="rdbtNoComun" layoutX="21.0" layoutY="42.0" mnemonicParsing="false" onAction="#selecionRareza" text="No Comun" toggleGroup="$rdGroupRareza" />
+                              <RadioButton fx:id="rdbtRaro" layoutX="21.0" layoutY="66.0" mnemonicParsing="false" onAction="#selecionRareza" text="Raro" toggleGroup="$rdGroupRareza" />
+                              <RadioButton fx:id="rdbtEspecial" layoutX="21.0" layoutY="116.0" mnemonicParsing="false" onAction="#selecionRareza" text="Especial" toggleGroup="$rdGroupRareza" />
+                              <RadioButton fx:id="rdbtMistic" layoutX="21.0" layoutY="91.0" mnemonicParsing="false" onAction="#selecionRareza" text="Mistico Raro" toggleGroup="$rdGroupRareza" />
+                              <RadioButton fx:id="rdbtBasicLand" layoutX="22.0" layoutY="140.0" mnemonicParsing="false" onAction="#selecionRareza" text="Basica de Tierra" toggleGroup="$rdGroupRareza" />
                            </children>
                         </Pane>
                      </children>

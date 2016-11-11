@@ -39,10 +39,10 @@ public class Controller {
     public ImageView Imagen;
 //endregion
 
-    public ArrayList<String> imagenes = new ArrayList<String>();
+    public ArrayList<String> imagenes ;
 
-    public ObservableList<String> listaCartas = FXCollections.observableArrayList ();
-    public ObservableList<String> indices = FXCollections.observableArrayList ();
+    public ObservableList<String> listaCartas ;
+    public ObservableList<String> indices;
     public ArrayList<Carta> cartas;
 
 
@@ -60,10 +60,18 @@ public class Controller {
         cartas= api.getAllCartas();
 
 
+        CrearLista();
+
+    }
+
+    private void CrearLista() {
         for (int i = 0; i <cartas.size() ; i++) {
             System.out.println(cartas.get(i).getName());
         }
 
+        indices= FXCollections.observableArrayList ();
+        listaCartas= FXCollections.observableArrayList ();
+        imagenes = new ArrayList<String>();
         for (int i = 0; i <cartas.size() ; i++) {
             indices.add(""+i);
             imagenes.add(cartas.get(i).imageUrl);
@@ -71,7 +79,6 @@ public class Controller {
 
         }
         listViewCartas.setItems(indices);
-
 
 
         listViewCartas.setCellFactory(param -> new ListCell<String>() {
@@ -91,7 +98,6 @@ public class Controller {
                 }
             }
         });
-
     }
 
     public void datos(MouseEvent mouseEvent) {
@@ -115,6 +121,28 @@ public class Controller {
     }
 
 
+    public void selecionRareza(ActionEvent actionEvent) {
+        String NombreRareza="";
+        if(rdbtComun.isArmed())
+        {NombreRareza=rdbtComun.getText();}
+        else if(rdbtNoComun.isArmed())
+        {NombreRareza=rdbtNoComun.getText();}
+        else if(rdbtRaro.isArmed())
+        {NombreRareza=rdbtRaro.getText();}
+        else if(rdbtEspecial.isArmed())
+        {NombreRareza=rdbtEspecial.getText();}
+        else if(rdbtMistic.isArmed())
+        {NombreRareza=rdbtMistic.getText();}
+        else if(rdbtBasicLand.isArmed())
+        {NombreRareza=rdbtBasicLand.getText();}
+        if (NombreRareza!="")
+        {
+            Api api= new Api();
+            api.getCartas();
+
+            //TODO Acabar el filtrado
+        }
+    }
 }
 //TODO Hacer que en la cuadricula te ponga los colores correspondientes por cada carta los sleeccionados
 //TODO Hacer filtro por cartas

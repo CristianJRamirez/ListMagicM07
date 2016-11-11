@@ -2,7 +2,6 @@ package sample;
 
 
 
-import Android.HttpUtils;
 import com.sun.istack.internal.Nullable;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -38,7 +37,7 @@ public class Api {
         System.out.println(url);
 
         try {
-            String JsonResponse = Android.HttpUtils.get(url);
+            String JsonResponse = HttpUtils.get(url);
             System.out.println("-----------------------------__"+JsonResponse);
             return JsonResponse;
         } catch (IOException e) {

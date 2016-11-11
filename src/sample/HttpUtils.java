@@ -1,4 +1,4 @@
-package Android;
+package sample;
 
 /**
  * Created by 45858000w on 14/10/16.
@@ -21,6 +21,7 @@ public class HttpUtils {
 
         HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
         urlConnection.addRequestProperty("User-Agent", "Mozilla/4.76");
+
         try {
             InputStream in = new BufferedInputStream(urlConnection.getInputStream());
             response = readStream(in);
