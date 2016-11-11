@@ -82,7 +82,7 @@ public class Carta {
 
     @Override
     public String toString() {
-        return "Carta{" +
+        return "Carta {" +
                 "name='" + name + '\'' +
                 ", manaCost='" + manaCost + '\'' +
                 ", type='" + type + '\'' +
