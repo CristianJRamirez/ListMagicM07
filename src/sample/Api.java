@@ -23,16 +23,10 @@ public class Api {
 
 
 
+
     public String getCartas() throws URISyntaxException { //para utilizar el parametro
 
-        //URI builtUri = new URI(BASE_URL);
-        //  .buildUpon()
-        //.appendPath("vi")
-        //.appendPath("cards")
-        //.appendPath("box_office.json")
-        // .appendQueryParameter("country", pais)//para buscar dentro de la api con algun paramentro en concreto
-        //.appendQueryParameter("apikey", API_KEY)
-        // .build();
+
         String url = BASE_URL;
         System.out.println(url);
 
@@ -105,6 +99,13 @@ public class Api {
     }
 
 
+    public ArrayList<Carta> getCartasFiltro(String rareza) throws JSONException {
+        //"https://api.magicthegathering.io/v1/cards?language=russian&name=Зурго Шлемобой" //dos filtros
+        String BASE_URL3="https://api.magicthegathering.io/v1/cards?rarity="+rareza;
+        System.out.println(rareza);
+        System.out.println(BASE_URL3);
+        return getDatosCartas(BASE_URL3);
+    }
 }
 
 

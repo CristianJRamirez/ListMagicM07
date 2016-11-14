@@ -9,14 +9,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import org.json.JSONException;
 
-import java.io.BufferedInputStream;
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URISyntaxException;
-import java.net.URL;
-import java.net.URLConnection;
 import java.util.ArrayList;
-import java.util.List;
 
 public class Controller {
 
@@ -90,9 +85,16 @@ public class Controller {
                     setText(null);
                     setGraphic(null);
                 } else {
-                    Image IMAGE = new Image(imagenes.get(Integer.parseInt(item)),50,50,true,true,true);
-                    imageView.setImage(IMAGE);
-                    imageView.setCache(true);
+                    if (imagenes.get(Integer.parseInt(item))!=null){
+                        Image IMAGE = new Image(imagenes.get(Integer.parseInt(item)), 50, 50, true, true, true);
+                        imageView.setImage(IMAGE);
+                        imageView.setCache(true);
+                    }
+                    else {
+                        Image img = new Image("ic_close_black_48dp_2x.png", 50, 50, true, true, true);
+                        imageView.setImage(img);
+                        imageView.setCache(true);
+                    }
                     setText(listaCartas.get(Integer.parseInt(item)));
                     setGraphic(imageView);
                 }
@@ -111,36 +113,49 @@ public class Controller {
         txtRarity.setText(cartas.get(numeroCarta).getRarity());
         txtType.setText(cartas.get(numeroCarta).getType());
         txtAreaText.setText(cartas.get(numeroCarta).getText());
-        Image img= new Image(cartas.get(numeroCarta).getImageUrl(),600,300,true,true,true);
-        Imagen.setCache(true);
-        Imagen.setFitHeight(600);
-        Imagen.setFitWidth(300);
-        Imagen.setImage(img);
+        if (cartas.get(numeroCarta).getImageUrl()!=null) {
+            Image img = new Image(cartas.get(numeroCarta).getImageUrl(), 600, 300, true, true, true);
+            Imagen.setCache(true);
+            Imagen.setFitHeight(600);
+            Imagen.setFitWidth(300);
+            Imagen.setImage(img);
 
-
+        }
+        else {
+            Image img = new Image("ic_close_black_48dp_2x.png");
+            Imagen.setImage(img);
+        }
     }
 
 
-    public void selecionRareza(ActionEvent actionEvent) {
+    public void selecionRareza(ActionEvent actionEvent) throws URISyntaxException, JSONException, IOException {
         String NombreRareza="";
         if(rdbtComun.isArmed())
-        {NombreRareza=rdbtComun.getText();}
+        {NombreRareza="Common";}
         else if(rdbtNoComun.isArmed())
-        {NombreRareza=rdbtNoComun.getText();}
+        {NombreRareza="Uncommon";}
         else if(rdbtRaro.isArmed())
-        {NombreRareza=rdbtRaro.getText();}
+        {NombreRareza="Rare";}
         else if(rdbtEspecial.isArmed())
-        {NombreRareza=rdbtEspecial.getText();}
+        {NombreRareza="Special";}
         else if(rdbtMistic.isArmed())
-        {NombreRareza=rdbtMistic.getText();}
+        {NombreRareza="Mythic_Rare";}
         else if(rdbtBasicLand.isArmed())
-        {NombreRareza=rdbtBasicLand.getText();}
-        if (NombreRareza!="")
+        {NombreRareza="Basic_Land";}
+        if (NombreRareza=="")
         {
             Api api= new Api();
-            api.getCartas();
+            api.getAllCartas();
 
             //TODO Acabar el filtrado
+        }
+        else
+            {
+                Api api= new Api();
+                cartas=api.getCartasFiltro(NombreRareza);
+                if(cartas!=null) {
+                    CrearLista();
+                }
         }
     }
 }

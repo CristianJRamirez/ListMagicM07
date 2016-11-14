@@ -50,7 +50,10 @@
                                                 <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
                                              </VBox.margin>
                                           </TextField>
-                                          <ImageView fx:id="Imagen" fitHeight="77.0" fitWidth="199.0" pickOnBounds="true" preserveRatio="true" VBox.vgrow="ALWAYS" />
+                                          <ImageView fx:id="Imagen" fitHeight="50.0" fitWidth="199.0" pickOnBounds="true" preserveRatio="true" VBox.vgrow="ALWAYS">
+                                             <VBox.margin>
+                                                <Insets bottom="4.0" left="4.0" />
+                                             </VBox.margin></ImageView>
                                        </children>
                                     </VBox>
                                     <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
